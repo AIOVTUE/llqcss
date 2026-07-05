@@ -1,0 +1,46 @@
+/* 签名组件 — 复制到任意页面，或通过 <link> 引入 */
+.signature-widget {
+  --signature-color: #222222;
+  --signature-height: 40px;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.signature-widget:hover {
+  opacity: 0.85;
+}
+
+.signature-widget:focus-visible {
+  outline: 2px solid var(--signature-color);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.signature-svg {
+  height: var(--signature-height);
+  width: auto;
+  display: block;
+  overflow: visible;
+}
+
+.signature-widget:not([data-signature-ready]) {
+  visibility: hidden;
+}
+
+.signature-stroke {
+  fill: none;
+  stroke: var(--signature-color);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
+  stroke-linecap: butt;
+  opacity: 0;
+}
+
+.signature-stroke.is-drawing,
+.signature-stroke.is-complete {
+  stroke-linecap: round;
+  opacity: 1;
+}
